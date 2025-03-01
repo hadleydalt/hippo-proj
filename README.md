@@ -26,10 +26,23 @@ Your solution need not be exhaustive; the goal is instead to articulate a few ta
 
 ### Installation
 
+Install nvm
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+```
+
+Install the latest version of node:
+
+```bash
+nvm install --lts
+nvm use --lts
+```
+
 Install the dependencies:
 
 ```bash
-npm install
+npm ci
 ```
 
 ### Add Api Key
