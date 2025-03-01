@@ -79,7 +79,7 @@ export function Hippo() {
                 <div className="w-[800px] max-w-[100vw] p-4 text-center">
                     <h2 className="font-bold">Thank you!</h2>
                     <br />
-                    <p>We appreciate the time and effort you're investing this this process</p>
+                    <p>We appreciate the time and effort you're investing in this process</p>
                     <br />
                     <p>We're excited to see what you build</p>
                     <br />
