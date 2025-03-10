@@ -21,13 +21,14 @@ type SettingsPanelProps = {
 export default function SettingsPanel({ adjustTarget, settings, onSettingsChange, handleSet, hasEnabledSettings, setSettings }: SettingsPanelProps) {
     const navigate = useNavigate();
 
-    
+    const handleBack = () => {
+        navigate('..', { replace: true });
+    };
     
     return (
-
         <div className="p-6">
             <button
-                onClick={() => navigate(-1)}
+                onClick={handleBack}
                 className="flex items-center gap-2 text-black hover:text-gray-600 transition-colors mb-6"
             >
                 <ArrowLeftIcon className="w-5 h-5" />
