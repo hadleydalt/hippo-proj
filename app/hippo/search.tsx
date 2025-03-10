@@ -53,7 +53,15 @@ export default function Grid() {
 
     return (
         <div className="text-black">
-            <h2 className="text-2xl font-semibold mb-4">Filter and Search</h2>
+            <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-semibold">Filter and Search</h2>
+                <button 
+                    onClick={handleClearAll}
+                    className="px-8 py-2 border border-gray-300 rounded-lg text-black hover:border-black transition-colors"
+                >
+                    Clear All
+                </button>
+            </div>
             
             {/* Search Bar */}
             <div className="mb-6">
@@ -189,12 +197,6 @@ export default function Grid() {
                         </div>
                     </div>
                     <div className="flex gap-2 ml-4">
-                        <button 
-                            onClick={handleClearAll}
-                            className="px-4 py-2 border border-gray-300 rounded-lg text-black hover:border-black transition-colors"
-                        >
-                            Clear All
-                        </button>
                         <button 
                             onClick={handleFilterSearch}
                             className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"

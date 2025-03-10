@@ -66,12 +66,14 @@ export default function SearchResults({ selectedRegions, temperatureRange, humid
                 <div className="text-sm text-gray-600">
                     Found {filteredFacilities.length} matching facilities
                 </div>
+                {filteredFacilities.length > 0 &&
                 <button 
                     className="px-4 py-2 border border-gray-300 rounded-lg text-black hover:border-black transition-colors"
                     onClick={handleSelectShown}
                 >
                     Manage Shown Facilities
                 </button>
+}
             </div>
             <div className="grid grid-cols-1 gap-4">
                 {filteredFacilities.map(facility => (
