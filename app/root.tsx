@@ -83,7 +83,7 @@ export default function App() {
         <div className="mt-auto pt-6">
           <Link to="/add" className="block hover:text-gray-300 font-bold flex items-center gap-3">
             <PlusCircleIcon className="w-5 h-5" />
-            Add New Facility
+            Add Proposed Facility
           </Link>
         </div>
       </div>

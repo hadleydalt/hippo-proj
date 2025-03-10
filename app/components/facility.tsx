@@ -2,6 +2,7 @@ import { useState } from "react";
 import SettingsPanel from "./settingsPanel";
 import FacilityCard from "./FacilityCard";
 import { facilities } from "~/data/facilities";
+import InboxCard from "./InboxCard";
 
 type FacilityProps = {
     cityName: string;
@@ -42,6 +43,11 @@ export default function Facility({ cityName, id }: FacilityProps) {
             {facility && (
                 <div className="mt-6 px-4">
                     <FacilityCard facility={facility} />
+                    <div className="mt-6 grid grid-cols-3 gap-4">
+                        <InboxCard title="Suggestions" />
+                        <InboxCard title="Alerts" />
+                        <InboxCard title="Messages" />
+                    </div>
                 </div>
             )}
         </>

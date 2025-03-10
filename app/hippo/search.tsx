@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import FilterResults from '../components/FilterResults';
 import SearchResults from '../components/SearchResults';
+import CityCoordinates from '../components/CityCoordinates';
 
 type Region = 'Northeast' | 'Midwest' | 'South' | 'West';
 
@@ -205,6 +206,10 @@ export default function Grid() {
                         </button>
                     </div>
                 </div>
+            </div>
+
+            <div className="mt-8">
+                <CityCoordinates />
             </div>
 
             {showSearchResults && (

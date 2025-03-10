@@ -1,3 +1,9 @@
+import CityCoordinates from "~/components/CityCoordinates";
+
 export default function Add() {
-    return <div className="text-black">this is the add page</div>;
+    return (
+        <div className="p-6">
+            <CityCoordinates />
+        </div>
+    );
 }
