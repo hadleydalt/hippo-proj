@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import FilterResults from '../components/FilterResults';
 import SearchResults from '../components/SearchResults';
 
 type Region = 'Northeast' | 'Midwest' | 'South' | 'West';
 
 export default function Grid() {
     const [searchQuery, setSearchQuery] = useState('');
+    const [searchQueryLocked, setSearchQueryLocked] = useState('');
     const [selectedRegions, setSelectedRegions] = useState<Region[]>([]);
     const [temperatureRange, setTemperatureRange] = useState({ min: 30, max: 70 });
     const [humidityRange, setHumidityRange] = useState({ min: 25, max: 75 });
-    const [showResults, setShowResults] = useState(false);
+    const [showFilterResults, setShowFilterResults] = useState(false);
+    const [showSearchResults, setShowSearchResults] = useState(false);
 
     const [searchState, setSearchState] = useState({
         selectedRegions: [] as Region[],
@@ -28,12 +31,15 @@ export default function Grid() {
     };
 
     const handleSearch = () => {
-        setSearchState({
-            selectedRegions,
-            temperatureRange,
-            humidityRange
-        });
-        setShowResults(true);
+        setSearchQueryLocked(searchQuery);
+        setShowSearchResults(true);
+        setShowFilterResults(false);
+    };
+
+    const handleFilterSearch = () => {
+        setShowFilterResults(true);
+        setShowSearchResults(false);
+        setSearchQuery('');
     };
 
     const handleClearAll = () => {
@@ -41,7 +47,8 @@ export default function Grid() {
         setTemperatureRange({ min: 30, max: 70 });
         setHumidityRange({ min: 25, max: 75 });
         setSearchQuery('');
-        setShowResults(false);
+        setShowFilterResults(false);
+        setShowSearchResults(false);
     };
 
     return (
@@ -62,6 +69,7 @@ export default function Grid() {
                         <MagnifyingGlassIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
                     </div>
                     <button 
+                        onClick={handleSearch}
                         className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
                     >
                         Search
@@ -188,7 +196,7 @@ export default function Grid() {
                             Clear All
                         </button>
                         <button 
-                            onClick={handleSearch}
+                            onClick={handleFilterSearch}
                             className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
                         >
                             Search
@@ -197,8 +205,14 @@ export default function Grid() {
                 </div>
             </div>
 
-            {showResults && (
+            {showSearchResults && (
                 <SearchResults 
+                    searchQuery={searchQueryLocked}
+                />
+            )}
+
+            {showFilterResults && (
+                <FilterResults 
                     selectedRegions={searchState.selectedRegions}
                     temperatureRange={searchState.temperatureRange}
                     humidityRange={searchState.humidityRange}
