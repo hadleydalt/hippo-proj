@@ -1,3 +1,3 @@
 export default function Suggestions() {
-    return <div>this is the suggestions page</div>;
+    return <div className="text-black">this is the suggestions page</div>;
 }

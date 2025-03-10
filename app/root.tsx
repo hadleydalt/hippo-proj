@@ -7,6 +7,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import {
+  HomeIcon,
+  LightBulbIcon,
+  ChatBubbleLeftRightIcon,
+  BellIcon,
+  Cog6ToothIcon,
+  PlusCircleIcon,
+} from "@heroicons/react/24/outline";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -46,10 +54,40 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <div className="flex h-screen">
-      <div className="w-64 bg-black">
-        {/* Sidebar content can go here */}
+      <div className="w-64 bg-black text-white p-6 flex flex-col">
+        <div>
+          <h1 className="text-xl font-bold mb-8">Weather Manager</h1>
+          <nav className="space-y-4">
+            <Link to="/" className="block hover:text-gray-300 flex items-center gap-3">
+              <HomeIcon className="w-5 h-5" />
+              Home
+            </Link>
+            <Link to="/suggestions" className="block hover:text-gray-300 flex items-center gap-3">
+              <LightBulbIcon className="w-5 h-5" />
+              Suggestions
+            </Link>
+            <Link to="/messages" className="block hover:text-gray-300 flex items-center gap-3">
+              <ChatBubbleLeftRightIcon className="w-5 h-5" />
+              Messages
+            </Link>
+            <Link to="/alerts" className="block hover:text-gray-300 flex items-center gap-3">
+              <BellIcon className="w-5 h-5" />
+              Alerts
+            </Link>
+            <Link to="/settings" className="block hover:text-gray-300 flex items-center gap-3">
+              <Cog6ToothIcon className="w-5 h-5" />
+              Settings
+            </Link>
+          </nav>
+        </div>
+        <div className="mt-auto pt-6">
+          <Link to="/add" className="block hover:text-gray-300 font-bold flex items-center gap-3">
+            <PlusCircleIcon className="w-5 h-5" />
+            Add New Facility
+          </Link>
+        </div>
       </div>
-      <div className="flex-1 bg-blue-600">
+      <div className="flex-1 bg-white">
         <Outlet />
       </div>
     </div>

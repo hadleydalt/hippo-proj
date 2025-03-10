@@ -1,3 +1,3 @@
 export default function Add() {
-    return <div>this is the add page</div>;
+    return <div className="text-black">this is the add page</div>;
 }
