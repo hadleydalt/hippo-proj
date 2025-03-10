@@ -1,9 +1,9 @@
 import type { Route } from "./+types/home";
 import { Hippo } from "../hippo/hippo";
 import Map from "../hippo/map";
-import Grid from "../hippo/grid";
+import Grid from "../hippo/search";
 import { useState } from "react";
-import { MapIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
+import { MapIcon, Bars3Icon } from "@heroicons/react/24/outline";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -13,7 +13,7 @@ export function meta({ }: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const [view, setView] = useState<'map' | 'grid'>('map');
+  const [view, setView] = useState<'map' | 'search'>('map');
 
   return (
     <div className="p-6">
@@ -32,15 +32,15 @@ export default function Home() {
             Map
           </button>
           <button
-            onClick={() => setView('grid')}
+            onClick={() => setView('search')}
             className={`px-4 py-2 rounded-md transition-colors flex items-center gap-2 ${
-              view === 'grid'
+              view === 'search'
                 ? 'bg-white text-black shadow-sm'
                 : 'text-gray-600 hover:text-black'
             }`}
           >
-            <Squares2X2Icon className="w-5 h-5" />
-            Grid
+            <Bars3Icon className="w-5 h-5" />
+            Search
           </button>
         </div>
       </div>
