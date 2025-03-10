@@ -7,4 +7,5 @@ export default [
     route("alerts", "routes/alerts.tsx"),
     route("settings", "routes/settings.tsx"),
     route("add", "routes/add.tsx"),
+    route("selected", "routes/selected.tsx")
 ] satisfies RouteConfig;

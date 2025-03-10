@@ -87,7 +87,7 @@ export default function App() {
           </Link>
         </div>
       </div>
-      <div className="flex-1 bg-white">
+      <div className="flex-1 bg-white min-h-screen overflow-scroll">
         <Outlet />
       </div>
     </div>
