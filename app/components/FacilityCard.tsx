@@ -41,11 +41,11 @@ export default function FacilityCard({ facility }: FacilityCardProps) {
                             </div>
                             <div className="flex items-center gap-2">
                                 <ArrowDownIcon className="w-5 h-5 text-black" />
-                                <p>Min: {((facility.weather.main.temp_min * 9/5) + 32).toFixed(1)}°F</p>
+                                <p>Low: {((facility.weather.main.temp_min * 9/5) + 32).toFixed(1)}°F</p>
                             </div>
                             <div className="flex items-center gap-2">
                                 <ArrowUpIcon className="w-5 h-5 text-black" />
-                                <p>Max: {((facility.weather.main.temp_max * 9/5) + 32).toFixed(1)}°F</p>
+                                <p>High: {((facility.weather.main.temp_max * 9/5) + 32).toFixed(1)}°F</p>
                             </div>
                         </div>
 

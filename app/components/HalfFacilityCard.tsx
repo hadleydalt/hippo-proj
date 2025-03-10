@@ -5,6 +5,7 @@ import {
     SunIcon,
     ArrowDownIcon,
     ArrowUpIcon,
+    GlobeAmericasIcon,
 } from '@heroicons/react/24/outline';
 import type { Place } from "~/types/places";
 
@@ -23,14 +24,20 @@ export default function HalfFacilityCard({ facility }: FacilityCardProps) {
             onClick={() => navigate(`/${cityUrl}`)}
         >
             <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold">
-                    {facility.city}
-                </h2>
+                <div className="flex items-center gap-4">
+                    <h2 className="text-xl font-semibold">
+                        {facility.city}
+                    </h2>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <GlobeAmericasIcon className="w-4 h-4" />
+                        <span>{facility.region}</span>
+                    </div>
+                </div>
                 <div className="bg-black rounded-lg p-2 flex items-center justify-center">
                     <ChevronDoubleRightIcon className="w-5 h-5 text-white" />
                 </div>
             </div>
-            <div className="text-gray-600 mt-4">
+            <div className="text-gray-600 mt-6">
                 {facility.weather ? (
                     <div className="flex gap-8">
                         <div className="flex items-center gap-2">
@@ -43,11 +50,11 @@ export default function HalfFacilityCard({ facility }: FacilityCardProps) {
                         </div>
                         <div className="flex items-center gap-2">
                             <ArrowDownIcon className="w-5 h-5 text-black" />
-                            <p>Min: {((facility.weather.main.temp_min * 9/5) + 32).toFixed(1)}°F</p>
+                            <p>Low: {((facility.weather.main.temp_min * 9/5) + 32).toFixed(1)}°F</p>
                         </div>
                         <div className="flex items-center gap-2">
                             <ArrowUpIcon className="w-5 h-5 text-black" />
-                            <p>Max: {((facility.weather.main.temp_max * 9/5) + 32).toFixed(1)}°F</p>
+                            <p>High: {((facility.weather.main.temp_max * 9/5) + 32).toFixed(1)}°F</p>
                         </div>
                     </div>
                 ) : (

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import SearchResults from '../components/SearchResults';
 
 type Region = 'Northeast' | 'Midwest' | 'South' | 'West';
 
@@ -8,6 +9,13 @@ export default function Grid() {
     const [selectedRegions, setSelectedRegions] = useState<Region[]>([]);
     const [temperatureRange, setTemperatureRange] = useState({ min: 30, max: 70 });
     const [humidityRange, setHumidityRange] = useState({ min: 25, max: 75 });
+    const [showResults, setShowResults] = useState(false);
+
+    const [searchState, setSearchState] = useState({
+        selectedRegions: [] as Region[],
+        temperatureRange: { min: 30, max: 70 },
+        humidityRange: { min: 25, max: 75 }
+    });
 
     const regions: Region[] = ['Northeast', 'Midwest', 'South', 'West'];
 
@@ -17,6 +25,23 @@ export default function Grid() {
         } else {
             setSelectedRegions([...selectedRegions, region]);
         }
+    };
+
+    const handleSearch = () => {
+        setSearchState({
+            selectedRegions,
+            temperatureRange,
+            humidityRange
+        });
+        setShowResults(true);
+    };
+
+    const handleClearAll = () => {
+        setSelectedRegions([]);
+        setTemperatureRange({ min: 30, max: 70 });
+        setHumidityRange({ min: 25, max: 75 });
+        setSearchQuery('');
+        setShowResults(false);
     };
 
     return (
@@ -157,17 +182,13 @@ export default function Grid() {
                     </div>
                     <div className="flex gap-2 ml-4">
                         <button 
-                            onClick={() => {
-                                setSelectedRegions([]);
-                                setTemperatureRange({ min: 30, max: 70 });
-                                setHumidityRange({ min: 25, max: 75 });
-                                setSearchQuery('');
-                            }}
+                            onClick={handleClearAll}
                             className="px-4 py-2 border border-gray-300 rounded-lg text-black hover:border-black transition-colors"
                         >
                             Clear All
                         </button>
                         <button 
+                            onClick={handleSearch}
                             className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
                         >
                             Search
@@ -176,7 +197,13 @@ export default function Grid() {
                 </div>
             </div>
 
-            <div className="mt-4">this is the search</div>
+            {showResults && (
+                <SearchResults 
+                    selectedRegions={searchState.selectedRegions}
+                    temperatureRange={searchState.temperatureRange}
+                    humidityRange={searchState.humidityRange}
+                />
+            )}
         </div>
     );
 }
