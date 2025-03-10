@@ -9,6 +9,120 @@ const places: Array<Place> = [
         lon: -122.3839,
         weather: null,
     },
+    {
+        city: "Portland, ME",
+        lat: 43.6591,
+        lon: -70.2568,
+        weather: null,
+    },
+    {
+        city: "Savannah, GA",
+        lat: 32.0809,
+        lon: -81.0912,
+        weather: null,
+    },
+    {
+        city: "Santa Fe, NM",
+        lat: 35.6870,
+        lon: -105.9378,
+        weather: null,
+    },
+    {
+        city: "Bozeman, MT",
+        lat: 45.6770,
+        lon: -111.0429,
+        weather: null,
+    },
+    {
+        city: "Burlington, VT",
+        lat: 44.4759,
+        lon: -73.2121,
+        weather: null,
+    },
+    {
+        city: "Sedona, AZ",
+        lat: 34.8697,
+        lon: -111.7610,
+        weather: null,
+    },
+    {
+        city: "Charleston, SC",
+        lat: 32.7765,
+        lon: -79.9311,
+        weather: null,
+    },
+    {
+        city: "Asheville, NC",
+        lat: 35.5951,
+        lon: -82.5515,
+        weather: null,
+    },
+    {
+        city: "Moab, UT",
+        lat: 38.5733,
+        lon: -109.5498,
+        weather: null,
+    },
+    {
+        city: "Key West, FL",
+        lat: 24.5551,
+        lon: -81.7800,
+        weather: null,
+    },
+    {
+        city: "Juneau, AK",
+        lat: 58.3019,
+        lon: -134.4197,
+        weather: null,
+    },
+    {
+        city: "Taos, NM",
+        lat: 36.4072,
+        lon: -105.5734,
+        weather: null,
+    },
+    {
+        city: "Bar Harbor, ME",
+        lat: 44.3876,
+        lon: -68.2039,
+        weather: null,
+    },
+    {
+        city: "Telluride, CO",
+        lat: 37.9375,
+        lon: -107.8123,
+        weather: null,
+    },
+    {
+        city: "Carmel, CA",
+        lat: 36.5552,
+        lon: -121.9233,
+        weather: null,
+    },
+    {
+        city: "Jackson, WY",
+        lat: 43.4799,
+        lon: -110.7624,
+        weather: null,
+    },
+    {
+        city: "Kauai, HI",
+        lat: 22.0964,
+        lon: -159.5261,
+        weather: null,
+    },
+    {
+        city: "Nantucket, MA",
+        lat: 41.2835,
+        lon: -70.0995,
+        weather: null,
+    },
+    {
+        city: "Lake Tahoe, NV",
+        lat: 39.0968,
+        lon: -120.0324,
+        weather: null,
+    },
 ];
 
 export function Hippo() {
@@ -75,16 +189,6 @@ export function Hippo() {
                         </a>
 
                     </nav>
-                </div>
-                <div className="w-[800px] max-w-[100vw] p-4 text-center">
-                    <h2 className="font-bold">Thank you!</h2>
-                    <br />
-                    <p>We appreciate the time and effort you're investing in this process</p>
-                    <br />
-                    <p>We're excited to see what you build</p>
-                    <br />
-                    <p>Good luck!</p>
-
                 </div>
             </div>
         </main>

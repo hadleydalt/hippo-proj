@@ -44,7 +44,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <div className="flex h-screen">
+      <div className="w-64 bg-black">
+        {/* Sidebar content can go here */}
+      </div>
+      <div className="flex-1 bg-blue-600">
+        <Outlet />
+      </div>
+    </div>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
