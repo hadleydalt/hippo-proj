@@ -208,10 +208,6 @@ export default function Grid() {
                 </div>
             </div>
 
-            <div className="mt-8">
-                <CityCoordinates />
-            </div>
-
             {showSearchResults && (
                 <SearchResults 
                     searchQuery={searchQueryLocked}
