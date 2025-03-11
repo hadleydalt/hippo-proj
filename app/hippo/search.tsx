@@ -9,14 +9,14 @@ type Region = 'Northeast' | 'Midwest' | 'South' | 'West';
 export default function Grid() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchQueryLocked, setSearchQueryLocked] = useState('');
-    const [selectedRegions, setSelectedRegions] = useState<Region[]>([]);
+    const [selectedRegions, setSelectedRegions] = useState<Region[]>(['Northeast', 'Midwest', 'South', 'West']);
     const [temperatureRange, setTemperatureRange] = useState({ min: 30, max: 70 });
     const [humidityRange, setHumidityRange] = useState({ min: 25, max: 75 });
     const [showFilterResults, setShowFilterResults] = useState(false);
     const [showSearchResults, setShowSearchResults] = useState(false);
 
     const [searchState, setSearchState] = useState({
-        selectedRegions: [] as Region[],
+        selectedRegions: ['Northeast', 'Midwest', 'South', 'West'] as Region[],
         temperatureRange: { min: 30, max: 70 },
         humidityRange: { min: 25, max: 75 }
     });
@@ -38,13 +38,18 @@ export default function Grid() {
     };
 
     const handleFilterSearch = () => {
+        setSearchState({
+            selectedRegions: selectedRegions,
+            temperatureRange: temperatureRange,
+            humidityRange: humidityRange
+        });
         setShowFilterResults(true);
         setShowSearchResults(false);
         setSearchQuery('');
     };
 
     const handleClearAll = () => {
-        setSelectedRegions([]);
+        setSelectedRegions(['Northeast', 'Midwest', 'South', 'West']);
         setTemperatureRange({ min: 30, max: 70 });
         setHumidityRange({ min: 25, max: 75 });
         setSearchQuery('');
@@ -180,7 +185,13 @@ export default function Grid() {
                 {/* Region Filter and Buttons */}
                 <div className="flex justify-between items-end">
                     <div className="flex-1">
-                        <h3 className="text-lg font-medium mb-2">Region</h3>
+                        <div className="flex items-center gap-2 mb-2">
+                            <h3 className="text-lg font-medium">Region</h3>
+                            <span className="text-sm text-gray-600">
+                                {selectedRegions.length === 4 ? "All" : selectedRegions.length} {selectedRegions.length === 1 ? "region" : "regions"} selected
+                                {selectedRegions.length === 0 && " (will search all regions)"}
+                            </span>
+                        </div>
                         <div className="flex flex-wrap gap-2">
                             {regions.map(region => (
                                 <button
